@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Каталог продуктов</title>
+    <style>
+      :root {
+        --primary-color: #333; /* Основной цвет */
+        --secondary-color: #555; /* Вспомогательный цвет */
+        --background-color: #f4f4f4; /* Цвет фона */
+        --accent-color: #ed9b00;
+        --shadow-color: rgba(0, 0, 0, 0.1); /* Цвет тени */
+        --link-color: #666; /* Цвет ссылок */
+        --link-hover-color: #444; /* Цвет ссылок при наведении */
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .title-page {
+        width: 80%;
+        margin: 50px auto;
+        background-color: #fff;
+        box-shadow: 0 0 10px var(--shadow-color);
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .header {
+        text-align: center;
+      }
+
+      .header h1 {
+        color: var(--primary-color);
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .content {
+        padding: 20px;
+      }
+
+      .content h2 {
+        color: var(--secondary-color);
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
+
+      .content p {
+        margin-bottom: 15px;
+      }
+
+      .product-category {
+        display: flex;
+        padding-left: 0;
+        gap: 10px;
+      }
+
+      li {
+        list-style: none;
+        border-radius: 5px;
+        background-color: var(--accent-color);
+        padding: 10px;
+      }
+
+      li > a {
+        color: var(--background-color);
+      }
+
+      .product-search {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .product-search input[type="search"] {
+        width: 80%;
+        padding: 10px;
+        border: 1px solid var(--secondary-color);
+        border-right: none;
+        border-radius: 5px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      .search-form {
+        display: flex;
+      }
+
+      .search-btn {
+        background-color: var(--accent-color);
+        border: 1px solid var(--secondary-color);
+        border-left: none;
+        border-radius: 5px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      .search-btn:hover {
+        cursor: pointer;
+      }
+
+      .footer {
+        text-align: center;
+        font-size: 14px;
+        color: var(--secondary-color);
+        padding: 20px 0;
+      }
+
+      .footer p {
+        margin: 0;
+      }
+
+      .footer a {
+        color: var(--link-color);
+      }
+
+      .footer a:hover {
+        color: var(--link-hover-color);
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="title-page">
+      <div class="header">
+        <h1>Каталог продуктов</h1>
+      </div>
+      <div class="content">
+        <h2>Добро пожаловать в наш каталог продуктов!</h2>
+        <p>
+          Здесь вы найдете широкий ассортимент товаров, удобно распределенных по
+          категориям.
+        </p>
+        <nav>
+          <ul class="product-category">
+            <li><a href="#">Молочная продукция</a></li>
+            <li><a href="#">Овощи</a></li>
+            <li><a href="#">Фрукты</a></li>
+            <li><a href="#">Морепродукты</a></li>
+            <li><a href="#">Мясо</a></li>
+            <li><a href="#">Бакалея</a></li>
+            <li><a href="#">Напитки</a></li>
+            <li><a href="#">Хлебобулочные изделия</a></li>
+          </ul>
+          <div class="product-search">
+            <form
+              action="#"
+              method="get"
+              class="search-form"
+            >
+              <input
+                type="search"
+                name="search"
+                class="search-field"
+                placeholder="Поиск по продуктам..."
+              />
+              <button
+                type="submit"
+                class="search-btn"
+              >
+                &#x1F50D;
+              </button>
+            </form>
+          </div>
+        </nav>
+      </div>
+      <div class="footer">
+        <p>
+          Контакты: info@example.com<br />
+          Поддержка: support@example.com<br />
+          Социальные сети:
+          <a href="#">Telegram</a>,
+          <a href="https://www.vk.com/example">ВКонтакте</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
