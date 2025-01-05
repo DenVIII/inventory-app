@@ -1,8 +1,15 @@
-const pool = require("./db/pool");
+// app.js
+const express = require("express");
+const path = require("path");
+require("dotenv").config();
 
-async function getAllGroceries() {
-  const { rows } = await pool.query("SELECT * FROM groceries");
-  console.log(rows);
-}
+const PORT = process.env.PORT || 3000;
+const app = express();
+const homeRouter = require("./routes/homeRoute");
 
-getAllGroceries();
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: true }));
+app.use("/", homeRouter);
+
+app.listen(PORT, () => console.log(`Server is running at: localhost:${PORT}`));

@@ -150,16 +150,13 @@
           категориям.
         </p>
         <nav>
-          <ul class="product-category">
-            <li><a href="#">Молочная продукция</a></li>
-            <li><a href="#">Овощи</a></li>
-            <li><a href="#">Фрукты</a></li>
-            <li><a href="#">Морепродукты</a></li>
-            <li><a href="#">Мясо</a></li>
-            <li><a href="#">Бакалея</a></li>
-            <li><a href="#">Напитки</a></li>
-            <li><a href="#">Хлебобулочные изделия</a></li>
-          </ul>
+          <% if(locals.categories) {%> 
+            <ul class="product-category">
+              <% categories.forEach(category => { %>
+                <li><a href="#"><%= category.category_name%></a></li>
+              <% })%>
+            </ul>
+          <% }%>
           <div class="product-search">
             <form
               action="#"
