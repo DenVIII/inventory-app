@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Каталог продуктов</title>
+    <title>Служба доставки</title>
     <link rel="stylesheet" href="/styles.css" type="text/css">
   </head>
   <body>
@@ -20,35 +20,7 @@
           Здесь вы найдете широкий ассортимент товаров, удобно распределенных по
           категориям.
         </p>
-        <nav>
-          <% if(locals.categories) {%> 
-            <ul class="product-category">
-              <% categories.forEach(category => { %>
-                <li><a href="#"><%= category.category_name%></a></li>
-              <% })%>
-            </ul>
-          <% }%>
-          <div class="product-search">
-            <form
-              action="#"
-              method="get"
-              class="search-form"
-            >
-              <input
-                type="search"
-                name="search"
-                class="search-field"
-                placeholder="Поиск по продуктам..."
-              />
-              <button
-                type="submit"
-                class="search-btn"
-              >
-                &#x1F50D;
-              </button>
-            </form>
-          </div>
-        </nav>
+        <%- include('navbar.ejs', {categories: locals.categories}) %>
       </div>
       <div class="footer">
         <p>
