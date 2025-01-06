@@ -6,11 +6,13 @@ require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 const app = express();
 const homeRouter = require("./routes/homeRoute");
+const catalogueRouter = require("./routes/catalogueRoute");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
 app.use("/", homeRouter);
+app.use("/catalogue", catalogueRouter);
 
 app.listen(PORT, () => console.log(`Server is running at: localhost:${PORT}`));
