@@ -22,101 +22,12 @@
       <div class="content">
         <h2>Доступные товары по вашему запросу:</h2>
         <div class="groceries">
-          <div class="grocery-card">
-            <div class="card-header">
-              <h3 class="grocery-name">Молоко</h3>
-              <!-- Добавить иконки для редактирования и удаления товаров-->
-            </div>
-
-            <div class="card-subheader">
-              <p class="grocery-brand">Брэнд: <b><a href="#">Ивановна</a></b></p>
-              <p class="grocery-category">Категория: <b><a href="#">Молочная продукция</a></b></p>
-            </div>
-
-            <div class="placeholder-img"></div>
-            <!-- Тэг div потому что у меня нет изображения и я их заменю квадратами с помощью CSS-->
-
-            <div class="card-footer">
-              <p class="grocery-price">Цена: <b>84р./1л</b></p>
-              <p class="grocery-quantity">Осталось: <b>100 ед.</b></p>
-            </div>
-          </div>
-          <div class="grocery-card">
-            <div class="card-header">
-              <h3 class="grocery-name">Молоко</h3>
-              <!-- Добавить иконки для редактирования и удаления товаров-->
-            </div>
-
-            <div class="card-subheader">
-              <p class="grocery-brand">Брэнд: <b><a href="#">Ивановна</a></b></p>
-              <p class="grocery-category">Категория: <b><a href="#">Молочная продукция</a></b></p>
-            </div>
-
-            <div class="placeholder-img"></div>
-            <!-- Тэг div потому что у меня нет изображения и я их заменю квадратами с помощью CSS-->
-
-            <div class="card-footer">
-              <p class="grocery-price">Цена: <b>84р./1л</b></p>
-              <p class="grocery-quantity">Осталось: <b>100 ед.</b></p>
-            </div>
-          </div>
-          <div class="grocery-card">
-            <div class="card-header">
-              <h3 class="grocery-name">Молоко</h3>
-              <!-- Добавить иконки для редактирования и удаления товаров-->
-            </div>
-
-            <div class="card-subheader">
-              <p class="grocery-brand">Брэнд: <b><a href="#">Ивановна</a></b></p>
-              <p class="grocery-category">Категория: <b><a href="#">Молочная продукция</a></b></p>
-            </div>
-
-            <div class="placeholder-img"></div>
-            <!-- Тэг div потому что у меня нет изображения и я их заменю квадратами с помощью CSS-->
-
-            <div class="card-footer">
-              <p class="grocery-price">Цена: <b>84р./1л</b></p>
-              <p class="grocery-quantity">Осталось: <b>100 ед.</b></p>
-            </div>
-          </div>
-          <div class="grocery-card">
-            <div class="card-header">
-              <h3 class="grocery-name">Молоко</h3>
-              <!-- Добавить иконки для редактирования и удаления товаров-->
-            </div>
-
-            <div class="card-subheader">
-              <p class="grocery-brand">Брэнд: <b><a href="#">Ивановна</a></b></p>
-              <p class="grocery-category">Категория: <b><a href="#">Молочная продукция</a></b></p>
-            </div>
-
-            <div class="placeholder-img"></div>
-            <!-- Тэг div потому что у меня нет изображения и я их заменю квадратами с помощью CSS-->
-
-            <div class="card-footer">
-              <p class="grocery-price">Цена: <b>84р./1л</b></p>
-              <p class="grocery-quantity">Осталось: <b>100 ед.</b></p>
-            </div>
-          </div>
-          <div class="grocery-card">
-            <div class="card-header">
-              <h3 class="grocery-name">Молоко</h3>
-              <!-- Добавить иконки для редактирования и удаления товаров-->
-            </div>
-
-            <div class="card-subheader">
-              <p class="grocery-brand">Брэнд: <b><a href="#">Ивановна</a></b></p>
-              <p class="grocery-category">Категория: <b><a href="#">Молочная продукция</a></b></p>
-            </div>
-
-            <div class="placeholder-img"></div>
-            <!-- Тэг div потому что у меня нет изображения и я их заменю квадратами с помощью CSS-->
-
-            <div class="card-footer">
-              <p class="grocery-price">Цена: <b>84р./1л</b></p>
-              <p class="grocery-quantity">Осталось: <b>100 ед.</b></p>
-            </div>
-          </div>
+          <% if(locals.groceries) {%>
+            <% groceries.forEach(grocery => { %>
+              <%- include('grocery_card.ejs', {grocery}) %>
+            <% })%>
+          <% }%>
+          
         </div>
       </div>
       <div class="footer">

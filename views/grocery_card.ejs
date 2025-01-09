@@ -1,0 +1,19 @@
+<div class="grocery-card">
+    <div class="card-header">
+        <h3 class="grocery-name"><%= grocery.name %></h3>
+        <!-- Добавить иконки для редактирования и удаления товаров-->
+    </div>
+
+    <div class="card-subheader">
+        <p class="grocery-brand">Брэнд: <b><a href="#"><%= grocery.brand_name %></a></b></p>
+        <p class="grocery-category">Категория: <b><a href="#"><%= grocery.category_name %></a></b></p>
+    </div>
+
+    <div class="placeholder-img"></div>
+    <!-- Тэг div потому что у меня нет изображения и я их заменю квадратами с помощью CSS-->
+
+    <div class="card-footer">
+        <p class="grocery-price">Цена: <b><%= grocery.price_rub %>р/1<%= grocery.measurment %></b></p>
+        <p class="grocery-quantity">Осталось: <b><%= grocery.quantity %> ед.</b></p>
+    </div>
+</div>
