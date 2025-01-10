@@ -5,8 +5,8 @@
     </div>
 
     <div class="card-subheader">
-        <p class="grocery-brand">Брэнд: <b><a href="#"><%= grocery.brand_name %></a></b></p>
-        <p class="grocery-category">Категория: <b><a href="#"><%= grocery.category_name %></a></b></p>
+        <p class="grocery-brand">Брэнд: <b><a href="/catalogue?brand_name=<%= grocery.brand_name %>"><%= grocery.brand_name %></a></b></p>
+        <p class="grocery-category">Категория: <b><a href="/catalogue?category_name=<%= grocery.category_name %>"><%= grocery.category_name %></a></b></p>
     </div>
 
     <div class="placeholder-img"></div>

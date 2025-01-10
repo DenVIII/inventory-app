@@ -2,7 +2,7 @@
   <% if(locals.categories) {%>
     <ul class="product-category">
         <% categories.forEach(category => { %>
-        <li><a href="#"><%= category.category_name%></a></li>
+        <li><a href="/catalogue?category_name=<%= category.category_name %>"><%= category.category_name%></a></li>
         <% })%>
     </ul>
   <% }%>
