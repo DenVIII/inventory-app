@@ -42,11 +42,11 @@ function createDatabaseQueryFromRequest(requestQueries) {
   keys.forEach((key) => {
     if (result != "") result += " AND "; // Проверяем был ли уже добавлен параметр запроса и добавляем AND в конец строки, если результат не пустой
 
-    const queryValue = requestQueries[key];
+    const queryValue = requestQueries[key].toLowerCase();
     if (Array.isArray(queryValue)) {
       result += `LOWER(${key}) IN (\'${queryValue.join("','")}\')`; // Обрабатываем массив запросов по одному столбцу
     } else {
-      result += `LOWER(${key}) = LOWER(\'${queryValue}\')`;
+      result += `LOWER(${key}) LIKE (\'${queryValue}\%')`;
     }
   });
 
