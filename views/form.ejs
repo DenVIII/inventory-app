@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Служба доставки</title>
+    <link
+      rel="stylesheet"
+      href="/styles.css"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <div class="title-page">
+      <div class="header">
+        <h1>Форма нового товара:</h1>
+      </div>
+      <div class="content">
+        <div class="new-grocery-form">
+          <form action="/catalogue" method="post">
+              <div class="form-group">
+                  <label for="name">Имя товара:</label>
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Введите имя товара" required>
+              </div>
+              <div class="form-group">
+                  <label for="brand_name">Брэнд:</label>
+                  <input type="text" name="brand_name" class="form-control" id="brand_name" placeholder="Введите брэнд" required>
+              </div>
+              <div class="form-group">
+                  <label for="category_name">Категория:</label>
+                  <input type="text" name="category_name" class="form-control" id="category_name" placeholder="Введите категорию" required>
+              </div>
+              <div class="form-group">
+                  <label for="quantity">Количество товара:</label>
+                  <input type="number" name="quantity" class="form-control" id="quantity" placeholder="Введите количество" required>
+              </div>
+              <div class="form-group">
+                  <label for="measurment">Единицы измерения:</label>
+                  <input type="text" name="measurment" class="form-control" id="measurment" placeholder="Введите единицы измерения" required>
+              </div>
+              <div class="form-group">
+                  <label for="price_rub">Цена:</label>
+                  <input type="number" name="price_rub" class="form-control" id="price_rub" placeholder="Введите цену" required>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn">Отправить</button>
+                <a class="return-home-button" href="/">Вернуться на главную</a>
+            </div>
+          </form>
+      </div>
+      </div>
+      <div class="footer">
+        <p>
+          Контакты: info@example.com<br />
+          Поддержка: support@example.com<br />
+          Социальные сети:
+          <a href="#">Telegram</a>,
+          <a href="https://www.vk.com/example">ВКонтакте</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

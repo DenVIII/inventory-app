@@ -3,6 +3,8 @@
   --secondary-color: #555; /* Вспомогательный цвет */
   --background-color: #f4f4f4; /* Цвет фона */
   --accent-color: #ed9b00;
+  --highlight-color: #ed5b00;
+  --inactive-color: #ccc;
   --shadow-color: rgba(0, 0, 0, 0.1); /* Цвет тени */
   --link-color: #666; /* Цвет ссылок */
   --link-hover-color: #444; /* Цвет ссылок при наведении */
@@ -67,11 +69,20 @@ li {
   list-style: none;
   border-radius: 5px;
   background-color: var(--accent-color);
+  transition: all 0.3s ease;
   padding: 10px;
+}
+
+li:hover {
+  background-color: var(--highlight-color);
 }
 
 li > a {
   color: var(--background-color);
+}
+
+li:hover > a {
+  color: white;
 }
 
 .product-search {
@@ -101,10 +112,12 @@ li > a {
   border-radius: 5px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+  transition: all 0.3s ease;
 }
 
 .search-btn:hover {
   cursor: pointer;
+  background-color: var(--highlight-color);
 }
 
 .footer {
@@ -129,16 +142,6 @@ li > a {
 
 /* Catalogue */
 
-:root {
-  --primary-color: #333; /* Основной цвет */
-  --secondary-color: #555; /* Вспомогательный цвет */
-  --background-color: #f4f4f4; /* Цвет фона */
-  --accent-color: #ed9b00;
-  --shadow-color: rgba(0, 0, 0, 0.1); /* Цвет тени */
-  --link-color: #666; /* Цвет ссылок */
-  --link-hover-color: #444; /* Цвет ссылок при наведении */
-}
-
 .groceries {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -147,7 +150,8 @@ li > a {
   background-color: #f7f7f7;
 }
 
-.grocery-card {
+.grocery-card,
+.new-grocery-card {
   border: 1px solid #ddd;
   padding: 15px;
   margin: 10px;
@@ -157,6 +161,46 @@ li > a {
 
 .grocery-card:hover {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.new-grocery-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--inactive-color);
+}
+
+.new-grocery-card > h3 {
+  color: var(--background-color);
+  transition: all 0.3s ease;
+}
+
+.new-grocery-card-btn {
+  background-color: #a8a4a4;
+  border: none;
+  border-radius: 49%;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 1px 3px var(--inactive-color), 0 1px 2px var(--inactive-color);
+  color: var(--background-color);
+  font-weight: bold;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.new-grocery-card:hover {
+  background-color: var(--highlight-color);
+  cursor: pointer;
+}
+
+.new-grocery-card:hover > * {
+  color: #fff;
+}
+
+.new-grocery-card:hover > .new-grocery-card-btn {
+  background-color: var(--accent-color);
+  box-shadow: 0 1px 3px #b74802, 0 1px 6px #b74802;
 }
 
 .card-header {
@@ -182,7 +226,7 @@ li > a {
 .placeholder-img {
   width: 200px;
   height: 200px;
-  background-color: #ccc;
+  background-color: var(--inactive-color);
   border-radius: 5px;
   display: block;
   margin: 10px auto;
@@ -197,4 +241,80 @@ li > a {
 .grocery-price,
 .grocery-quantity {
   font-size: 14px;
+}
+
+/* Form */
+
+.new-grocery-form {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px var(--shadow-color);
+  width: 50%;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: 14px;
+  color: var(--secondary-color);
+  margin-bottom: 5px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  color: var(--primary-color);
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 5px var(--shadow-color);
+}
+
+.btn,
+.return-home-button {
+  background-color: var(--accent-color);
+  color: #fff;
+  padding: 10px 20px;
+  margin: 20px 0;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover,
+.return-home-button:hover {
+  background-color: var(--highlight-color);
+}
+
+.placeholder {
+  color: var(--inactive-color);
+}
+
+.form-group:last-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.return-home-button {
+  background-color: #333;
+  color: #fff;
+}
+
+.form-group:last-child > * {
+  display: inline-block;
 }
