@@ -18,7 +18,7 @@ const SQL = `
         id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
         name VARCHAR(100) NOT NULL,
         quantity INT NOT NULL DEFAULT 0,
-        measurment VARCHAR(100) NOT NULL DEFAULT 'шт.',
+        measurment VARCHAR(100) NOT NULL DEFAULT 'шт',
         price_rub INT NOT NULL,
         category_id INT REFERENCES category(id)
     );
