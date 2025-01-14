@@ -5,6 +5,7 @@
   --accent-color: #ed9b00;
   --highlight-color: #ed5b00;
   --inactive-color: #ccc;
+  --icon-color: #f4f4f4;
   --shadow-color: rgba(0, 0, 0, 0.1); /* Цвет тени */
   --link-color: #666; /* Цвет ссылок */
   --link-hover-color: #444; /* Цвет ссылок при наведении */
@@ -150,6 +151,10 @@ li:hover > a {
   background-color: #f7f7f7;
 }
 
+.grocery-card {
+  position: relative;
+}
+
 .grocery-card,
 .new-grocery-card {
   border: 1px solid #ddd;
@@ -207,6 +212,92 @@ li:hover > a {
   background-color: #f5f5f5;
   padding: 10px;
   border-bottom: 1px solid #ddd;
+}
+
+a.update-btn {
+  background-color: #195febf1;
+}
+
+/* Иконка кнопки редактирования товара */
+
+.edit-pencil {
+  position: relative;
+  display: inline-block;
+  width: 12.5px;
+  height: 18px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.edit-pencil:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-2px, -3px) rotate(-45deg);
+  width: 3px;
+  height: 5px;
+  background-color: var(--icon-color);
+  box-shadow: 1px 0px 0px var(--icon-color), 2px 0px 0px var(--icon-color),
+    3px 0px 0px var(--icon-color), -1px 0px 0px var(--icon-color),
+    -2px 0px 0px var(--icon-color), -3px 0px 0px var(--icon-color),
+    -3.3px 0px 0px var(--icon-color), 7px 0px 0px var(--icon-color);
+  transition: all 300ms;
+  content: "";
+}
+.edit-pencil:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-9px, 3px) rotate(-45deg);
+  font-size: 1px;
+  border: solid 3em transparent;
+  border-left-width: 0;
+  border-right-width: 5em;
+  border-right-color: var(--icon-color);
+  transition: all 300ms;
+  content: "";
+}
+
+/*Иконка удаления товара*/
+
+a.delete-btn {
+  background-color: #e81e1e;
+}
+
+.delete-icon {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+
+.delete-icon:before,
+.delete-icon:after {
+  position: absolute;
+  top: 0%;
+  left: 40%;
+  content: " ";
+  height: 16px;
+  width: 3px;
+  background-color: var(--icon-color);
+}
+
+.delete-icon:before {
+  transform: rotate(45deg);
+}
+.delete-icon:after {
+  transform: rotate(-45deg);
+}
+
+a.small-btn {
+  padding: 5px 8px;
+  font-size: 12px;
+}
+
+.wrapper {
+  position: absolute;
+  top: -2%;
+  right: 4%;
+  display: flex;
+  gap: 4px;
 }
 
 .grocery-name {
