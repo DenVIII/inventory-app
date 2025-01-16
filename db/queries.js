@@ -8,13 +8,28 @@ async function getAllCategories() {
 async function getAllCatalogue() {
   const { rows } = await pool.query(
     `
-      SELECT name, quantity, measurment, price_rub, category_name, brand_name 
+      SELECT groceries.id, name, quantity, measurment, price_rub, category_name, brand_name 
       FROM groceries 
       JOIN category ON groceries.category_id = category.id
       JOIN brand_grocery ON brand_grocery.grocery_id = groceries.id
       JOIN brand ON brand_grocery.brand_id = brand.id
       ORDER BY category_name, name;
     `
+  );
+  return rows;
+}
+
+async function getGroceryDataById(id) {
+  const { rows } = await pool.query(
+    `
+      SELECT groceries.id, name, quantity, measurment, price_rub, category_name, brand_name 
+      FROM groceries 
+      JOIN category ON groceries.category_id = category.id
+      JOIN brand_grocery ON brand_grocery.grocery_id = groceries.id
+      JOIN brand ON brand_grocery.brand_id = brand.id
+      WHERE groceries.id = $1;
+    `,
+    [id]
   );
   return rows;
 }
@@ -29,7 +44,6 @@ async function getCatalogueBySearchQuery(queryParams) {
       WHERE ${createDatabaseQueryFromRequest(queryParams)}
       ORDER BY category_name, name;
   `;
-  console.log(queryText);
   const { rows } = await pool.query(queryText);
 
   return rows;
@@ -56,14 +70,7 @@ function createDatabaseQueryFromRequest(requestQueries) {
 async function insertNewGrocery(grocery) {
   // Вставляем категорию, если она еще не существует
 
-  await pool.query(
-    `
-      INSERT INTO category (category_name) 
-      SELECT $1::VARCHAR(100) 
-      WHERE NOT EXISTS (SELECT category_name FROM category WHERE category_name=$1::VARCHAR(100));
-    `,
-    [grocery.categoryName]
-  );
+  await insertNewCategory(grocery.categoryName);
 
   // Вставляем бренд, если он еще не существует
 
@@ -118,6 +125,10 @@ async function insertNewGrocery(grocery) {
 // Функция обновления данных товара через форму
 
 async function updateGrocery(updatedGroceryData) {
+  // Обновляем, при необходимости таблицу категорий(в случае если пользователь указал еще не существующую)
+
+  await insertNewCategory(updatedGroceryData.categoryName);
+
   // Получаем id категории товара
 
   const categoryData = await pool.query(
@@ -204,7 +215,6 @@ async function updateGrocery(updatedGroceryData) {
     SELECT * FROM groceries
     WHERE id = ${updatedGroceryData.groceryId}
     `);
-  console.log(rows);
 
   console.log("Закончил обновление");
 }
@@ -246,6 +256,18 @@ async function insertIntoBrandGroceryTable(brandId, groceryId) {
   );
 }
 
+// Проверяет есть ли уже в таблице category категория с именем из передаваемого параметра и если нет, то добавляет ее
+async function insertNewCategory(categoryName) {
+  await pool.query(
+    `
+      INSERT INTO category (category_name) 
+      SELECT $1::VARCHAR(100) 
+      WHERE NOT EXISTS (SELECT category_name FROM category WHERE category_name=$1::VARCHAR(100));
+    `,
+    [categoryName]
+  );
+}
+
 /* updateGrocery({
   groceryId: 1,
   name: "Молоко",
@@ -262,4 +284,5 @@ module.exports = {
   getCatalogueBySearchQuery,
   insertNewGrocery,
   updateGrocery,
+  getGroceryDataById,
 };

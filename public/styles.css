@@ -21,6 +21,7 @@ body {
 nav {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 a {
@@ -62,6 +63,7 @@ a {
 
 .product-category {
   display: flex;
+  flex-wrap: wrap;
   padding-left: 0;
   gap: 10px;
 }
@@ -336,7 +338,8 @@ a.small-btn {
 
 /* Form */
 
-.new-grocery-form {
+.new-grocery-form,
+.update-grocery-form {
   padding: 20px;
   background-color: #fff;
   border: 1px solid #ddd;

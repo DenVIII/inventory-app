@@ -13,7 +13,6 @@ async function createNewGroceryCard(req, res, next) {
     categoryName: req.body.category_name,
     brandName: req.body.brand_name,
   };
-  console.log(newGrocery);
   if (
     !newGrocery.name ||
     !newGrocery.quantity ||
