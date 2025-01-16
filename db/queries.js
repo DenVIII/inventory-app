@@ -268,15 +268,26 @@ async function insertNewCategory(categoryName) {
   );
 }
 
-/* updateGrocery({
-  groceryId: 1,
-  name: "Молоко",
-  quantity: 4,
-  measurment: "л",
-  priceRub: 93,
-  categoryName: "Молочная продукция",
-  brandName: "Луг-Раздолье",
-}); */
+async function deleteGroceryById(groceryId) {
+  // Получаем все данные о удаляемом продукте
+  const grocery = await getGroceryDataById(groceryId);
+
+  // Получаем id брэнда
+  const brandName = grocery[0].brand_name;
+  const brandId = await getBrandIdByName(brandName);
+
+  // Удаляем его из таблицы зависимостей brand_grocery
+  await deleteFromBrandGroceryTable(brandId, groceryId);
+
+  // Удаляем продукт из таблицы groceries
+  await pool.query(
+    `
+    DELETE from groceries
+    WHERE id = $1;
+    `,
+    [groceryId]
+  );
+}
 
 module.exports = {
   getAllCategories,
@@ -285,4 +296,5 @@ module.exports = {
   insertNewGrocery,
   updateGrocery,
   getGroceryDataById,
+  deleteGroceryById,
 };

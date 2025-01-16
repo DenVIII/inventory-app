@@ -9,6 +9,7 @@ const homeRouter = require("./routes/homeRoute");
 const catalogueRouter = require("./routes/catalogueRoute");
 const formRouter = require("./routes/formRoute");
 const productRouter = require("./routes/productRoute");
+const deleteProductPageRouter = require("./routes/deleteProductPageRoute");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -18,5 +19,6 @@ app.use("/", homeRouter);
 app.use("/catalogue", catalogueRouter);
 app.use("/form", formRouter);
 app.use("/update", productRouter);
+app.use("/delete", deleteProductPageRouter);
 
 app.listen(PORT, () => console.log(`Server is running at: localhost:${PORT}`));

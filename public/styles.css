@@ -339,7 +339,8 @@ a.small-btn {
 /* Form */
 
 .new-grocery-form,
-.update-grocery-form {
+.update-grocery-form,
+.delete-grocery-form {
   padding: 20px;
   background-color: #fff;
   border: 1px solid #ddd;
