@@ -1,11 +1,11 @@
 const db = require("../db/queries");
 
-async function getHomePage(req, res) {
+async function getMenuPage(req, res) {
   const categories = await db.getAllCategories();
 
-  res.render("index", { categories });
+  res.render("menu", { categories });
 }
 
 module.exports = {
-  getHomePage,
+  getMenuPage,
 };

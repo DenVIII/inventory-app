@@ -143,6 +143,48 @@ li:hover > a {
   text-decoration: underline;
 }
 
+/* Home section */
+
+.home {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    no-repeat center/cover url("/images/home-background.jpg");
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header,
+.subheader {
+  color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  margin-bottom: 25px;
+}
+
+.header {
+  font-size: 2rem;
+}
+
+.subheader {
+  font-size: 1.5rem;
+}
+
+.start-btn {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  font-size: 1.2rem;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.start-btn:hover {
+  background-color: var(--highlight-color);
+}
+
 /* Catalogue */
 
 .groceries {
